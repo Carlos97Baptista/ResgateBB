@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import axios from 'axios';
 import ItemInvest from '../../components/ItemInvest';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 const ResgateList = ({navigation}) => {
   const [investmentList, setInvestmentList] = useState([]);

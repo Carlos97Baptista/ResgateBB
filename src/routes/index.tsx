@@ -4,7 +4,7 @@ import * as React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 

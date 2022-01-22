@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {Dimensions, Platform, Text, Pressable, View} from 'react-native';
+import {Dimensions, Platform, Text, FlatList, View} from 'react-native';
 import Btn from '../Btn';
-import styled from 'styled-components';
-import {FlatList} from 'react-native-gesture-handler';
+import styled from 'styled-components/native';
 import Modal from 'react-native-modal';
 import {currencyFormat} from '../../Utils';
 const deviceWidth = Dimensions.get('window').width;
@@ -28,8 +27,6 @@ const getActionName =(name) =>{
   };
   return (
     <Modal
-      animationType="slide"
-      transparent={true}
       isVisible={visible}
       deviceWidth={deviceWidth}
       deviceHeight={deviceHeight}

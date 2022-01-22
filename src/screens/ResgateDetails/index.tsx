@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, FlatList, ScrollView} from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import ItemDetail from '../../components/ItemDetail';
 import InvestmentDetail from '../../components/InvestmentDetail';
 import {currencyFormat} from '../../Utils';

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import ItemDetail from '../ItemDetail';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import CurrencyFormatter from 'react-native-currency-format';
 import CurrencyInput from 'react-native-currency-input';
 import {currencyFormat} from '../../Utils';
