@@ -9,6 +9,7 @@ const ItemInvest = props => {
   const {invest} = props;
   return (
     <Box
+     testID={`${invest.nome}`}
       carencia={invest.indicadorCarencia}
       onPress={() => {
         invest.indicadorCarencia === 'S'

@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, FlatList, ScrollView} from 'react-native';
+import {
+  View,
+  FlatList,
+  ScrollView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 import styled from 'styled-components/native';
 import ItemDetail from '../../components/ItemDetail';
 import InvestmentDetail from '../../components/InvestmentDetail';
@@ -66,38 +72,54 @@ const ResgateDetails = ({route, navigation}) => {
     }
   };
   return (
-    <>
-      <ModalBB
-        visible={visible}
-        setVisible={setVisible}
-        label={modalData.label}
-        btnClick={modalData.btnClick}
-        title={modalData.title}
-        subtitle={modalData.subtitle}
-        errorList={modalData.errorList}
-      />
-      <ScrollView>
-        <Title>DADOS DO INVESTIMENTO</Title>
-        <Box>
-          <ItemDetail label={'Nome'} value={invest.nome} />
-          <Divider />
-          <ItemDetail
-            label={'Saldo total disponivel'}
-            value={currencyFormat(invest.saldoTotal)}
-          />
-        </Box>
-        <Title>RESGATE SEU INVESTIMENTO</Title>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} testID="Keyboard">
+      <View>
+        <ModalBB
+          visible={visible}
+          setVisible={setVisible}
+          label={modalData.label}
+          btnClick={modalData.btnClick}
+          title={modalData.title}
+          subtitle={modalData.subtitle}
+          errorList={modalData.errorList}
+        />
 
-        <FlatList data={invest.acoes} renderItem={renderItem} />
-        <Box>
-          <ItemDetail
-            label={'Total a resgatar'}
-            value={'R$ ' + getTotalValue()}
-          />
-        </Box>
-        <Btn label={'CONFIRMAR RESGATE'} onPress={handleConfirm} />
-      </ScrollView>
-    </>
+        <FlatList
+          testID="resgate-details"
+          ListHeaderComponent={() => (
+            <>
+              <Title>DADOS DO INVESTIMENTO</Title>
+              <Box>
+                <ItemDetail label={'Nome'} value={invest.nome} />
+                <Divider />
+                <ItemDetail
+                  label={'Saldo total disponivel'}
+                  value={currencyFormat(invest.saldoTotal)}
+                />
+              </Box>
+              <Title>RESGATE SEU INVESTIMENTO</Title>
+            </>
+          )}
+          ListFooterComponent={() => (
+            <>
+              <Box>
+                <ItemDetail
+                  label={'Total a resgatar'}
+                  value={'R$ ' + getTotalValue()}
+                />
+              </Box>
+              <Btn
+                label={'CONFIRMAR RESGATE'}
+                testID={'subimit'}
+                onPress={handleConfirm}
+              />
+            </>
+          )}
+          data={invest.acoes}
+          renderItem={renderItem}
+        />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 export default ResgateDetails;

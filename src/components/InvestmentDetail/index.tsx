@@ -50,6 +50,7 @@ const InvestmentDetail = props => {
       <InputBox>
         <InputLabel>Valor a resgatar</InputLabel>
         <CurrencyInput
+        testID={`${getActionName(value.nome)}`}
           value={resgate}
           onChangeValue={val => handleValue(val)}
           prefix="R$ "

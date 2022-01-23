@@ -3,9 +3,9 @@ import {View, Text} from 'react-native';
 import styled from 'styled-components/native';
 
 const Btn = props => {
-  const {label, onPress} = props;
+  const {label, onPress, testID} = props;
   return (
-    <Button onPress={() => onPress()}>
+    <Button testID={testID} onPress={() => onPress()}>
       <Txt>{label}</Txt>
     </Button>
   );

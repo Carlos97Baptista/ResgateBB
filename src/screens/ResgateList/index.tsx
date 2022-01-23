@@ -17,7 +17,7 @@ const ResgateList = ({navigation}) => {
       });
   }, []);
 
-  const renderItem = ({item}) => <ItemInvest invest={item} />;
+  const renderItem = ({item, index}) => <ItemInvest  invest={item} />;
   return (
     <View>
       <Box>

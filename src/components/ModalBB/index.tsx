@@ -5,12 +5,7 @@ import styled from 'styled-components/native';
 import Modal from 'react-native-modal';
 import {currencyFormat} from '../../Utils';
 const deviceWidth = Dimensions.get('window').width;
-const deviceHeight =
-  Platform.OS === 'ios'
-    ? Dimensions.get('window').height
-    : require('react-native-extra-dimensions-android').get(
-        'REAL_WINDOW_HEIGHT',
-      );
+const deviceHeight = Dimensions.get('window').height;
 const ModalBB = props => {
   const {visible, setVisible, label, btnClick, title, subtitle, errorList} =
     props;
@@ -27,6 +22,7 @@ const getActionName =(name) =>{
   };
   return (
     <Modal
+    testID='modal'
       isVisible={visible}
       deviceWidth={deviceWidth}
       deviceHeight={deviceHeight}
